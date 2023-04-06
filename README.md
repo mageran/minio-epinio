@@ -123,5 +123,13 @@ epinio configuration show x3b302cdc9c34cf4411bce2b95f13-minio-service-dev
 | endpoint_url   | https://minio-x3b302cdc9c34cf4411bce2b95f13:9000 | /configurations/devMinio/endpoint_url   |
 | s3_bucket_name | x3b302cdc9c34cf4411bce2b95f13.phase1.s3.bucket   | /configurations/devMinio/s3_bucket_name |
 | secretkey      | XXXXXXXXXXXXXXX                                 | /configurations/devMinio/secretkey      |
+```
 
 As you can see, a bucket has been created that can be used by the application. The instance name and namespace have been used to name the bucket to avoid name clashes with other apps.
+
+
+## References:
+
+* Github repository for the code implemeting the helm-chart of the minio service: [here](https://github.com/mageran/kubernetes-epinio).
+
+* Github repository and pages for helm-chart repo where the helm chart of the service is uploaded to: [here](https://github.com/mageran/helm-charts-repo)
