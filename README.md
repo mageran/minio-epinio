@@ -119,10 +119,10 @@ epinio configuration show x3b302cdc9c34cf4411bce2b95f13-minio-service-dev
 ...
 |   PARAMETER    |                      VALUE                       |               ACCESS PATH               |
 |----------------|--------------------------------------------------|-----------------------------------------|
-| accesskey      | XXXXXXXXXXXXXXX                                 | /configurations/devMinio/accesskey      |
+| accesskey      | XXXXXXXXXXXXXXXX                                 | /configurations/devMinio/accesskey      |
 | endpoint_url   | https://minio-x3b302cdc9c34cf4411bce2b95f13:9000 | /configurations/devMinio/endpoint_url   |
 | s3_bucket_name | x3b302cdc9c34cf4411bce2b95f13.phase1.s3.bucket   | /configurations/devMinio/s3_bucket_name |
-| secretkey      | XXXXXXXXXXXXXXX                                 | /configurations/devMinio/secretkey      |
+| secretkey      | XXXXXXXXXXXXXXXX                                 | /configurations/devMinio/secretkey      |
 ```
 
 As you can see, a bucket has been created that can be used by the application. The instance name and namespace have been used to name the bucket to avoid name clashes with other apps.
