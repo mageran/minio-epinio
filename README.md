@@ -1,6 +1,6 @@
 # Enabling Minio in Epinio
 
-Epinio comes with a running [Minio](min.io) installation, which is used internally to store source code. The following can be used to (1) expose this service externally and (2) to use it within epinio apps through a service (similiar to redis, mysql etc).
+Epinio comes with a running [Minio](https://min.io/) installation, which is used internally to store source code. The following can be used to (1) expose this service externally and (2) to use it within epinio apps through a service (similiar to redis, mysql etc).
 
 ## Exposing the Minio service externally
 
