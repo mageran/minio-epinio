@@ -38,7 +38,10 @@ create-service-instances:
 delete-service-instance:
 	-epinio service delete $(SERVICE_NAME_INSTANCE)
 
-build-ui-client:
+npm-install-ui-client:
+	cd client; npm install
+
+build-ui-client: npm-install-ui-client
 	cd client; npm run build
 
 create-app: delete-app create-service-instances
