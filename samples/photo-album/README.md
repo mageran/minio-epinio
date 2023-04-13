@@ -16,7 +16,7 @@ This will create a minio service named `devMinio` and the test app named `test-a
 SERVICENAME=my-minio APPNAME=my-app NAMESPACE=my-namespace make deploy
 ```
 
-If everything works as expected, you can visit the url that is show at the end of the deploy output, e.g. https://test-access-minio.127.0.0.1.sslip.io/. After uploading a few images, the UI should look something like this:
+If everything works as expected, you can visit the url that is shown at the end of the deploy output, e.g. https://test-access-minio.127.0.0.1.sslip.io/. After uploading a few images, the UI should look something like this:
 
 ![screenshot](ui-screen.png)
 
