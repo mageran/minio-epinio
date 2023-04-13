@@ -1,10 +1,11 @@
 
 
-APP_NAME = test-access-minio
-TARGET = phase2
+APPNAME ?= test-access-minio
+TARGET ?= test-minio-namespace 
+SERVICENAME ?= devMinio
 
-SERVICE_NAME = minio-service-dev
-SERVICE_NAME_INSTANCE = devMinio
+CATALOG_SERVICE = minio-service-dev
+
 
 MINIO_URL ?= https://minio.127.0.0.1.sslip.io
 
@@ -14,7 +15,7 @@ define create-service
 endef
 
 define get-s3-bucket-name
-	conf=$$(epinio app show $(APP_NAME) | grep $(SERVICE_NAME) | awk '{ print $$5 }'); \
+	conf=$$(epinio app show $(APPNAME) | grep $(CATALOG_SERVICE) | awk '{ print $$5 }'); \
 	$(1)_name=$$(epinio configuration show $${conf} | grep s3_bucket_name | awk '{ print $$4 }'); \
 	echo $$$(1)_name
 endef
@@ -23,7 +24,7 @@ all:
 	@echo "*** use explicit target"
 
 deploy: create-app epinio-environment-yml build-ui-client
-	epinio app push -n $(APP_NAME)
+	epinio app push -n $(APPNAME)
 
 target:
 	@epinio namespace show $(TARGET) > /dev/null || epinio namespace create $(TARGET)
@@ -33,10 +34,10 @@ epinio-environment-yml: environment_dev.yml
 	cat environment_dev.yml | grep -v '#dev' > environment.yml
 
 create-service-instances:
-	$(call create-service, $(SERVICE_NAME), $(SERVICE_NAME_INSTANCE))
+	$(call create-service, $(CATALOG_SERVICE), $(SERVICENAME))
 
 delete-service-instance:
-	-epinio service delete $(SERVICE_NAME_INSTANCE)
+	-epinio service delete $(SERVICENAME)
 
 npm-install-ui-client:
 	cd client; npm install
@@ -45,14 +46,14 @@ build-ui-client: npm-install-ui-client
 	cd client; npm run build
 
 create-app: delete-app create-service-instances
-	epinio app create $(APP_NAME) && \
-	epinio service bind $(SERVICE_NAME_INSTANCE) $(APP_NAME)
+	epinio app create $(APPNAME) && \
+	epinio service bind $(SERVICENAME) $(APPNAME)
 
 delete-app: target
-	-epinio app delete $(APP_NAME)
+	-epinio app delete $(APPNAME)
 
 check-app-exists:
-	epinio app show $(APP_NAME) > /dev/null
+	epinio app show $(APPNAME) > /dev/null
 
 show-app-bucket-name: check-app-exists
 	$(call get-s3-bucket-name)
