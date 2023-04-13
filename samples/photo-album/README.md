@@ -20,6 +20,6 @@ If everything works as expected, you can visit the url that is shown at the end 
 
 ![screenshot](ui-screen.png)
 
-Also works with non-cloud images 😉
+Also works with non-cloud images 😉 (credits for the photos go to my friend [@waelsv](https://gist.github.com/waelsv)!)
 
 If you have the aws-cli setup running, you can also check that a bucket with the name `<conf-name>.<namespace>.s3.bucket` has been created and that it contains the image files you've uploaded. (`conf-name` refers to the name of the configuration created for the service by epinio).
