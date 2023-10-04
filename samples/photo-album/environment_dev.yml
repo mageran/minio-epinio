@@ -3,8 +3,7 @@ dependencies:
 - python=3.9
 - pip=21
 - pip:
-    - werkzeug==2.2.2
-    - flask==2.2.2
+    - flask==3.0.0
     - pathlib2>=2.3.7
     - boto3>=1.26
     - opencv-python>=4.7.0.72
